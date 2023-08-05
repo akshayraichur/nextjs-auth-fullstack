@@ -28,6 +28,7 @@ export default function ProfilePage() {
     // shoot a mail, with password reset token
     const response = await axios.get("/api/users/forgotpassword");
     console.log(response.data);
+    toast.success("Reset email has been sent");
   };
   console.log(data);
   return (
