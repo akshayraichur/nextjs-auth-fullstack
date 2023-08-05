@@ -1,3 +1,9 @@
+import { Toaster } from "react-hot-toast";
+
 export default function Home() {
-  return <main className={""}></main>;
+  return (
+    <main className={""}>
+      <Toaster />
+    </main>
+  );
 }

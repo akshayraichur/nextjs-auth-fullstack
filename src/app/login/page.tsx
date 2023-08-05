@@ -27,6 +27,12 @@ const LoginPage = () => {
     setBtnLoading(true);
     const response = await axios.post("/api/users/login", user);
     console.log(response.data);
+
+    if (response.data.status >= 400) {
+      toast.error("There is some error");
+      setBtnLoading(false);
+      return;
+    }
     toast.success("login done");
     router.push("/profile");
 

@@ -23,6 +23,12 @@ export default function ProfilePage() {
     console.log(response.data.user);
     setData(response.data.user);
   };
+
+  const forgotPassword = async () => {
+    // shoot a mail, with password reset token
+    const response = await axios.get("/api/users/forgotpassword");
+    console.log(response.data);
+  };
   console.log(data);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -33,11 +39,22 @@ export default function ProfilePage() {
         Logout
       </button>
 
+      <br />
+
       <button
         onClick={getUserDetails}
         className="rounded bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4"
       >
         Get data
+      </button>
+
+      <br />
+
+      <button
+        onClick={forgotPassword}
+        className="rounded bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4"
+      >
+        Forgot password?
       </button>
 
       <div>{/* <h2>{data}</h2> */}</div>
